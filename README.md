@@ -1,0 +1,2 @@
+# Aerocortex-Experience-Aware-Cognitive-Architecture-for-Autonomous-UAVs
+AeroCortex is an experience-aware AI architecture for autonomous UAVs that enables drones to learn from past missions and recover from failures. It combines persistent memory, knowledge graphs, local LLM reasoning, multi-agent safety validation, and edge deployment to support reliable operation in GPS-denied and communication-limited environments.
