@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+  # 1. Neo4j Knowledge Graph Engine
+  neo4j:
+    image: neo4j:5.18-community
+    container_name: aerocortex-neo4j
+    ports:
+      - "7474:7474" # HTTP Browser
+      - "7687:7687" # Bolt protocol
+    environment:
+      - NEO4J_AUTH=neo4j/aerocortex_password
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+    restart: unless-stopped
+
+  # 2. Local Ollama LLM Service (Gemma 3)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: aerocortex-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+  # 3. AeroCortex FastAPI Telemetry Gateway
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aerocortex-api
+    command: ["python", "main.py", "--api"]
+    ports:
+      - "8000:8000"
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - neo4j
+      - ollama
+    restart: unless-stopped
+
+  # 4. AeroCortex Streamlit Mission Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aerocortex-dashboard
+    command: ["python", "main.py", "--dashboard"]
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:
+  ollama_models:
