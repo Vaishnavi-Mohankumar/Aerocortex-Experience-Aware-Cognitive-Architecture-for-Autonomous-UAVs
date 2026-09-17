@@ -1,0 +1,459 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "Failure",
+      "name": "GPS_INTERFERENCE",
+      "id": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "type": "Failure",
+      "name": "GPS_LOSS",
+      "id": "failure:GPS_LOSS"
+    },
+    {
+      "type": "Failure",
+      "name": "BATTERY_DEGRADATION",
+      "id": "failure:BATTERY_DEGRADATION"
+    },
+    {
+      "type": "Failure",
+      "name": "LOW_BATTERY",
+      "id": "failure:LOW_BATTERY"
+    },
+    {
+      "type": "Failure",
+      "name": "STRONG_WIND",
+      "id": "failure:STRONG_WIND"
+    },
+    {
+      "type": "Failure",
+      "name": "COMMUNICATION_LOSS",
+      "id": "failure:COMMUNICATION_LOSS"
+    },
+    {
+      "type": "Failure",
+      "name": "SENSOR_ANOMALY",
+      "id": "failure:SENSOR_ANOMALY"
+    },
+    {
+      "type": "Failure",
+      "name": "COMBINED_FAILURE",
+      "id": "failure:COMBINED_FAILURE"
+    },
+    {
+      "type": "Condition",
+      "name": "MODERATE_WIND",
+      "id": "condition:MODERATE_WIND"
+    },
+    {
+      "type": "Condition",
+      "name": "HIGH_WIND",
+      "id": "condition:HIGH_WIND"
+    },
+    {
+      "type": "Condition",
+      "name": "CRITICAL_BATTERY",
+      "id": "condition:CRITICAL_BATTERY"
+    },
+    {
+      "type": "Condition",
+      "name": "RESERVE_BATTERY",
+      "id": "condition:RESERVE_BATTERY"
+    },
+    {
+      "type": "Condition",
+      "name": "HIGH_ALTITUDE",
+      "id": "condition:HIGH_ALTITUDE"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "SWITCH_TO_VIO_DEAD_RECKONING",
+      "id": "action:SWITCH_TO_VIO_DEAD_RECKONING"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "INERTIAL_DEAD_RECKONING_SAFE_RTH",
+      "id": "action:INERTIAL_DEAD_RECKONING_SAFE_RTH"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "POWER_CONSERVATIVE_RTH",
+      "id": "action:POWER_CONSERVATIVE_RTH"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "CONTROLLED_EMERGENCY_LAND",
+      "id": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "REDUCE_VELOCITY_ALTITUDE_HOLD_DESCENT",
+      "id": "action:REDUCE_VELOCITY_ALTITUDE_HOLD_DESCENT"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH",
+      "id": "action:AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH"
+    },
+    {
+      "type": "RecoveryAction",
+      "name": "SWITCH_SECONDARY_IMU_STABILIZE",
+      "id": "action:SWITCH_SECONDARY_IMU_STABILIZE"
+    },
+    {
+      "type": "Outcome",
+      "name": "MISSION_SUCCESS",
+      "weight": 1.0,
+      "id": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "type": "Outcome",
+      "name": "MISSION_ABORTED_SAFE",
+      "weight": 0.8,
+      "id": "outcome:MISSION_ABORTED_SAFE"
+    },
+    {
+      "type": "Outcome",
+      "name": "MISSION_FAILURE",
+      "weight": 0.0,
+      "id": "outcome:MISSION_FAILURE"
+    },
+    {
+      "type": "Mission",
+      "name": "SIM_MISSION_001",
+      "id": "mission:SIM_MISSION_001"
+    },
+    {
+      "type": "Mission",
+      "name": "TEST_LEARN_001",
+      "id": "mission:TEST_LEARN_001"
+    },
+    {
+      "type": "Mission",
+      "name": "LOOP_001",
+      "id": "mission:LOOP_001"
+    },
+    {
+      "type": "Mission",
+      "name": "CRIT_001",
+      "id": "mission:CRIT_001"
+    },
+    {
+      "type": "Mission",
+      "name": "MISSION_001",
+      "id": "mission:MISSION_001"
+    },
+    {
+      "type": "Mission",
+      "name": "MISSION_002",
+      "id": "mission:MISSION_002"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_COLD_EXP-1",
+      "id": "mission:AC_COLD_EXP-1"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_WARM_EXP-1",
+      "id": "mission:AC_WARM_EXP-1"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_COLD_EXP-2",
+      "id": "mission:AC_COLD_EXP-2"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_WARM_EXP-2",
+      "id": "mission:AC_WARM_EXP-2"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_COLD_EXP-3",
+      "id": "mission:AC_COLD_EXP-3"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_WARM_EXP-3",
+      "id": "mission:AC_WARM_EXP-3"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_COLD_EXP-4",
+      "id": "mission:AC_COLD_EXP-4"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_WARM_EXP-4",
+      "id": "mission:AC_WARM_EXP-4"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_COLD_EXP-5",
+      "id": "mission:AC_COLD_EXP-5"
+    },
+    {
+      "type": "Mission",
+      "name": "AC_WARM_EXP-5",
+      "id": "mission:AC_WARM_EXP-5"
+    }
+  ],
+  "links": [
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:GPS_INTERFERENCE",
+      "target": "condition:MODERATE_WIND"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.7,
+      "source": "failure:GPS_INTERFERENCE",
+      "target": "condition:HIGH_WIND"
+    },
+    {
+      "relation": "RECOVERED_BY",
+      "weight": 0.92,
+      "source": "failure:GPS_LOSS",
+      "target": "action:INERTIAL_DEAD_RECKONING_SAFE_RTH"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:BATTERY_DEGRADATION",
+      "target": "condition:RESERVE_BATTERY"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:BATTERY_DEGRADATION",
+      "target": "condition:MODERATE_WIND"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:LOW_BATTERY",
+      "target": "condition:CRITICAL_BATTERY"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:STRONG_WIND",
+      "target": "condition:HIGH_WIND"
+    },
+    {
+      "relation": "RECOVERED_BY",
+      "weight": 0.91,
+      "source": "failure:COMMUNICATION_LOSS",
+      "target": "action:AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:COMMUNICATION_LOSS",
+      "target": "condition:MODERATE_WIND"
+    },
+    {
+      "relation": "RECOVERED_BY",
+      "weight": 0.95,
+      "source": "failure:COMBINED_FAILURE",
+      "target": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "relation": "OCCURRED_DURING",
+      "weight": 0.9,
+      "source": "failure:COMBINED_FAILURE",
+      "target": "condition:HIGH_WIND"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:MODERATE_WIND",
+      "target": "action:SWITCH_TO_VIO_DEAD_RECKONING"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:MODERATE_WIND",
+      "target": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:MODERATE_WIND",
+      "target": "action:AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.85,
+      "source": "condition:HIGH_WIND",
+      "target": "action:INERTIAL_DEAD_RECKONING_SAFE_RTH"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:HIGH_WIND",
+      "target": "action:REDUCE_VELOCITY_ALTITUDE_HOLD_DESCENT"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:HIGH_WIND",
+      "target": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.95,
+      "source": "condition:CRITICAL_BATTERY",
+      "target": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "relation": "TRIGGERED",
+      "weight": 0.92,
+      "source": "condition:RESERVE_BATTERY",
+      "target": "action:POWER_CONSERVATIVE_RTH"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:SWITCH_TO_VIO_DEAD_RECKONING",
+      "target": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:INERTIAL_DEAD_RECKONING_SAFE_RTH",
+      "target": "outcome:MISSION_ABORTED_SAFE"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.93,
+      "source": "action:POWER_CONSERVATIVE_RTH",
+      "target": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:CONTROLLED_EMERGENCY_LAND",
+      "target": "outcome:MISSION_ABORTED_SAFE"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:CONTROLLED_EMERGENCY_LAND",
+      "target": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:REDUCE_VELOCITY_ALTITUDE_HOLD_DESCENT",
+      "target": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.95,
+      "source": "action:AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH",
+      "target": "outcome:MISSION_SUCCESS"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:SIM_MISSION_001",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:TEST_LEARN_001",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:LOOP_001",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:CRIT_001",
+      "target": "failure:LOW_BATTERY"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:MISSION_001",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:MISSION_002",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_COLD_EXP-1",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_WARM_EXP-1",
+      "target": "failure:GPS_INTERFERENCE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_COLD_EXP-2",
+      "target": "failure:BATTERY_DEGRADATION"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_WARM_EXP-2",
+      "target": "failure:BATTERY_DEGRADATION"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_COLD_EXP-3",
+      "target": "failure:COMMUNICATION_LOSS"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_WARM_EXP-3",
+      "target": "failure:COMMUNICATION_LOSS"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_COLD_EXP-4",
+      "target": "failure:STRONG_WIND"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_WARM_EXP-4",
+      "target": "failure:STRONG_WIND"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_COLD_EXP-5",
+      "target": "failure:COMBINED_FAILURE"
+    },
+    {
+      "relation": "ENCOUNTERED",
+      "weight": 1.0,
+      "source": "mission:AC_WARM_EXP-5",
+      "target": "failure:COMBINED_FAILURE"
+    }
+  ]
+}

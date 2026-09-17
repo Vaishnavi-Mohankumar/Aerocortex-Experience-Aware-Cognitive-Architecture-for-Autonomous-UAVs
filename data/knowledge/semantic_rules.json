@@ -1,0 +1,92 @@
+[
+  {
+    "rule_id": "RULE_GPS_01",
+    "trigger": "GPS_INTERFERENCE",
+    "condition": "gps_accuracy > 3.0 or gps_status == 'degraded'",
+    "action": "SWITCH_TO_VIO_DEAD_RECKONING",
+    "confidence": 1.0,
+    "success_count": 11,
+    "failure_count": 0,
+    "description": "IF GPS interference occurs THEN switch to Visual-Inertial Odometry / Dead Reckoning"
+  },
+  {
+    "rule_id": "RULE_GPS_02",
+    "trigger": "GPS_LOSS",
+    "condition": "gps_status == 'lost' or gps_accuracy > 10.0",
+    "action": "INERTIAL_DEAD_RECKONING_SAFE_RTH",
+    "confidence": 0.95,
+    "success_count": 1,
+    "failure_count": 0,
+    "description": "IF complete GPS loss occurs THEN hold altitude and dead-reckon Return-to-Home"
+  },
+  {
+    "rule_id": "RULE_BATTERY_01",
+    "trigger": "BATTERY_DEGRADATION",
+    "condition": "battery_voltage < 14.2 or voltage_sag_detected",
+    "action": "POWER_CONSERVATIVE_RTH",
+    "confidence": 0.9,
+    "success_count": 1,
+    "failure_count": 0,
+    "description": "IF rapid battery voltage sag occurs THEN throttle power consumption and RTH"
+  },
+  {
+    "rule_id": "RULE_BATTERY_02",
+    "trigger": "LOW_BATTERY",
+    "condition": "battery_level < 15.0",
+    "action": "CONTROLLED_EMERGENCY_LAND",
+    "confidence": 1.0,
+    "success_count": 3,
+    "failure_count": 0,
+    "description": "IF battery is under critical 15% threshold THEN execute controlled vertical landing"
+  },
+  {
+    "rule_id": "RULE_WIND_01",
+    "trigger": "STRONG_WIND",
+    "condition": "wind_speed > 12.0",
+    "action": "REDUCE_VELOCITY_ALTITUDE_HOLD_DESCENT",
+    "confidence": 1.0,
+    "success_count": 3,
+    "failure_count": 0,
+    "description": "IF wind speeds exceed 12 m/s THEN reduce airspeed and descend to lower shear boundary"
+  },
+  {
+    "rule_id": "RULE_COMMS_01",
+    "trigger": "COMMUNICATION_LOSS",
+    "condition": "communication_status == 'lost'",
+    "action": "AUTONOMOUS_FAILSAFE_HOLD_THEN_RTH",
+    "confidence": 1.0,
+    "success_count": 3,
+    "failure_count": 0,
+    "description": "IF ground telemetry link is severed THEN loiter 10s to reconnect, then execute autonomous RTH"
+  },
+  {
+    "rule_id": "RULE_SENSOR_01",
+    "trigger": "SENSOR_ANOMALY",
+    "condition": "imu_divergence > threshold",
+    "action": "SWITCH_SECONDARY_IMU_STABILIZE",
+    "confidence": 0.87,
+    "success_count": 1,
+    "failure_count": 0,
+    "description": "IF primary IMU reports divergent acceleration/gyro THEN switch to secondary IMU sensor"
+  },
+  {
+    "rule_id": "RULE_COMBINED_01",
+    "trigger": "COMBINED_FAILURE",
+    "condition": "multiple_anomalies_active",
+    "action": "CONTROLLED_EMERGENCY_LAND",
+    "confidence": 1.0,
+    "success_count": 3,
+    "failure_count": 0,
+    "description": "IF multiple simultaneous sensor/power failures occur THEN prioritize immediate safe landing"
+  },
+  {
+    "rule_id": "LEARNED_BATTERY_DEGRADATION_9",
+    "trigger": "BATTERY_DEGRADATION",
+    "condition": "auto_learned_from_mission_success",
+    "action": "CONTROLLED_EMERGENCY_LAND",
+    "confidence": 1.0,
+    "success_count": 2,
+    "failure_count": 0,
+    "description": "Auto-learned operational rule from successful recovery of BATTERY_DEGRADATION"
+  }
+]

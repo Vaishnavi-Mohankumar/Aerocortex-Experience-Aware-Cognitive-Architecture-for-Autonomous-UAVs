@@ -1,0 +1,231 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "anomaly",
+      "label": "GPS Loss",
+      "color": "#E53935",
+      "id": "anomaly:GPS_LOSS"
+    },
+    {
+      "type": "anomaly",
+      "label": "Battery Sag",
+      "color": "#E53935",
+      "id": "anomaly:BATTERY_SAG"
+    },
+    {
+      "type": "anomaly",
+      "label": "Comms Loss",
+      "color": "#E53935",
+      "id": "anomaly:COMMS_DROPOUT"
+    },
+    {
+      "type": "anomaly",
+      "label": "Severe Wind Gust",
+      "color": "#E53935",
+      "id": "anomaly:SEVERE_WIND_GUST"
+    },
+    {
+      "type": "context",
+      "label": "High Wind (>10m/s)",
+      "color": "#FB8C00",
+      "id": "context:HIGH_WIND"
+    },
+    {
+      "type": "context",
+      "label": "Moderate Wind",
+      "color": "#FB8C00",
+      "id": "context:MODERATE_WIND"
+    },
+    {
+      "type": "context",
+      "label": "Critical Battery (<20%)",
+      "color": "#FB8C00",
+      "id": "context:LOW_BATTERY"
+    },
+    {
+      "type": "context",
+      "label": "Reserve Battery (>20%)",
+      "color": "#FB8C00",
+      "id": "context:MEDIUM_BATTERY"
+    },
+    {
+      "type": "context",
+      "label": "Urban Canyon",
+      "color": "#FB8C00",
+      "id": "context:URBAN_CORRIDOR"
+    },
+    {
+      "type": "action",
+      "label": "Inertial Dead-Reckoning",
+      "color": "#1E88E5",
+      "id": "action:SWITCH_INERTIAL_DEAD_RECKONING"
+    },
+    {
+      "type": "action",
+      "label": "Altitude Hold & Descend",
+      "color": "#1E88E5",
+      "id": "action:ALTITUDE_HOLD_DESCENT"
+    },
+    {
+      "type": "action",
+      "label": "Return to Home (RTH)",
+      "color": "#1E88E5",
+      "id": "action:RETURN_TO_HOME"
+    },
+    {
+      "type": "action",
+      "label": "Emergency Landing",
+      "color": "#1E88E5",
+      "id": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "type": "action",
+      "label": "Loiter & Conserve",
+      "color": "#1E88E5",
+      "id": "action:POWER_CONSERVATIVE_LOITER"
+    },
+    {
+      "type": "outcome",
+      "label": "Safe Recovery / Success",
+      "color": "#43A047",
+      "id": "outcome:SUCCESS"
+    },
+    {
+      "type": "outcome",
+      "label": "Mission Aborted Safely",
+      "color": "#FDD835",
+      "id": "outcome:ABORTED"
+    },
+    {
+      "type": "outcome",
+      "label": "UAV Failure / Crash",
+      "color": "#D32F2F",
+      "id": "outcome:FAILURE"
+    },
+    {
+      "type": "anomaly",
+      "label": "COMPOUND_FAILURE",
+      "color": "#E53935",
+      "id": "anomaly:COMPOUND_FAILURE"
+    }
+  ],
+  "links": [
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.8,
+      "source": "anomaly:GPS_LOSS",
+      "target": "context:MODERATE_WIND"
+    },
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.7,
+      "source": "anomaly:GPS_LOSS",
+      "target": "context:HIGH_WIND"
+    },
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.9,
+      "source": "anomaly:BATTERY_SAG",
+      "target": "context:LOW_BATTERY"
+    },
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.6,
+      "source": "anomaly:BATTERY_SAG",
+      "target": "context:MEDIUM_BATTERY"
+    },
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.75,
+      "source": "anomaly:COMMS_DROPOUT",
+      "target": "context:URBAN_CORRIDOR"
+    },
+    {
+      "relation": "OCCURRED_IN",
+      "weight": 0.95,
+      "source": "anomaly:SEVERE_WIND_GUST",
+      "target": "context:HIGH_WIND"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.85,
+      "source": "context:HIGH_WIND",
+      "target": "action:ALTITUDE_HOLD_DESCENT"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.7,
+      "source": "context:HIGH_WIND",
+      "target": "action:POWER_CONSERVATIVE_LOITER"
+    },
+    {
+      "relation": "LEARNED_LINK",
+      "weight": 0.6,
+      "source": "context:HIGH_WIND",
+      "target": "action:SWITCH_INERTIAL_DEAD_RECKONING"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.9,
+      "source": "context:MODERATE_WIND",
+      "target": "action:SWITCH_INERTIAL_DEAD_RECKONING"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.95,
+      "source": "context:LOW_BATTERY",
+      "target": "action:CONTROLLED_EMERGENCY_LAND"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.8,
+      "source": "context:MEDIUM_BATTERY",
+      "target": "action:RETURN_TO_HOME"
+    },
+    {
+      "relation": "MITIGATED_BY",
+      "weight": 0.85,
+      "source": "context:URBAN_CORRIDOR",
+      "target": "action:RETURN_TO_HOME"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 1.0,
+      "source": "action:SWITCH_INERTIAL_DEAD_RECKONING",
+      "target": "outcome:SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.9,
+      "source": "action:ALTITUDE_HOLD_DESCENT",
+      "target": "outcome:SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.85,
+      "source": "action:RETURN_TO_HOME",
+      "target": "outcome:SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.98,
+      "source": "action:CONTROLLED_EMERGENCY_LAND",
+      "target": "outcome:SUCCESS"
+    },
+    {
+      "relation": "RESULTED_IN",
+      "weight": 0.8,
+      "source": "action:POWER_CONSERVATIVE_LOITER",
+      "target": "outcome:ABORTED"
+    },
+    {
+      "relation": "LEARNED_LINK",
+      "weight": 0.6,
+      "source": "anomaly:COMPOUND_FAILURE",
+      "target": "context:HIGH_WIND"
+    }
+  ]
+}

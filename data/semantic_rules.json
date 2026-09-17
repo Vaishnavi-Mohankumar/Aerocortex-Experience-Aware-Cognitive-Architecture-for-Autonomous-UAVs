@@ -1,0 +1,84 @@
+[
+  {
+    "rule_id": "RULE-GPS-01",
+    "anomaly_trigger": "GPS_LOSS",
+    "context_criteria": {
+      "max_wind_speed": 10.0
+    },
+    "recommended_action": "SWITCH_INERTIAL_DEAD_RECKONING",
+    "confidence": 0.88,
+    "success_count": 8,
+    "failure_count": 1,
+    "description": "If GPS drops under moderate wind, switch to inertial dead-reckoning hovering."
+  },
+  {
+    "rule_id": "RULE-GPS-02",
+    "anomaly_trigger": "GPS_LOSS",
+    "context_criteria": {
+      "min_wind_speed": 10.0
+    },
+    "recommended_action": "ALTITUDE_HOLD_DESCENT",
+    "confidence": 0.92,
+    "success_count": 6,
+    "failure_count": 0,
+    "description": "If GPS drops under high winds aloft, descend to low-altitude envelope to escape wind shear."
+  },
+  {
+    "rule_id": "RULE-BAT-01",
+    "anomaly_trigger": "BATTERY_SAG",
+    "context_criteria": {
+      "min_battery_pct": 20.0
+    },
+    "recommended_action": "RETURN_TO_HOME",
+    "confidence": 0.85,
+    "success_count": 5,
+    "failure_count": 1,
+    "description": "If battery sags but remains above 20%, abort mission and return to home immediately."
+  },
+  {
+    "rule_id": "RULE-BAT-02",
+    "anomaly_trigger": "BATTERY_SAG",
+    "context_criteria": {
+      "max_battery_pct": 20.0
+    },
+    "recommended_action": "CONTROLLED_EMERGENCY_LAND",
+    "confidence": 0.96,
+    "success_count": 12,
+    "failure_count": 0,
+    "description": "If battery drops below critical 20%, execute controlled emergency landing immediately."
+  },
+  {
+    "rule_id": "RULE-COMM-01",
+    "anomaly_trigger": "COMMS_DROPOUT",
+    "context_criteria": {
+      "gps_valid": true
+    },
+    "recommended_action": "RETURN_TO_HOME",
+    "confidence": 0.9,
+    "success_count": 7,
+    "failure_count": 0,
+    "description": "If comms link is lost while GPS is healthy, autonomous RTH fail-safe."
+  },
+  {
+    "rule_id": "RULE-WIND-01",
+    "anomaly_trigger": "SEVERE_WIND_GUST",
+    "context_criteria": {
+      "min_wind_speed": 12.0
+    },
+    "recommended_action": "ALTITUDE_HOLD_DESCENT",
+    "confidence": 0.89,
+    "success_count": 9,
+    "failure_count": 1,
+    "description": "If encountering severe winds aloft, descend to lower altitude where surface drag reduces wind velocity."
+  },
+  {
+    "rule_id": "RULE-GEN-7",
+    "anomaly_trigger": "COMPOUND_FAILURE",
+    "context_criteria": {},
+    "recommended_action": "SWITCH_INERTIAL_DEAD_RECKONING",
+    "confidence": 0.75,
+    "success_count": 1,
+    "failure_count": 0,
+    "description": "Auto-extracted rule from mission MISSION-01-COLD: Compound GPS Loss and High Wind Gusts aloft (Outcome: SUCCESS)"
+  }
+]
